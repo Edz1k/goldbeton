@@ -91,7 +91,7 @@ function handleSend() {
 
           <!-- Кнопка -->
           <button
-            class="text-white font-semibold mt-6 py-3 rounded-lg bg-red-600 w-full transition-all hover:opacity-90"
+            class="text-white font-semibold mt-6 py-3 rounded-lg bg-yellow-600 w-full transition-all hover:opacity-90"
             @click="handleSend"
           >
             Отправить

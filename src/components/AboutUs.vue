@@ -16,7 +16,7 @@ const certificates = [
 
       <!-- Преимущества -->
       <div class="mb-20 gap-6 grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2">
-        <div class="p-6 text-center border-t-4 border-red-500 rounded-xl bg-white shadow-md">
+        <div class="p-6 text-center border-t-4 border-yellow-600 rounded-xl bg-white shadow-md">
           <div class="text-4xl mb-3">
             🚛
           </div>
@@ -75,7 +75,7 @@ const certificates = [
             Более 10 лет и десятки реализованных проектов.
           </p>
         </div>
-        <div class="p-6 text-center border-t-4 border-red-500 rounded-xl bg-white shadow">
+        <div class="p-6 text-center border-t-4 border-yellow-600 rounded-xl bg-white shadow">
           <div class="text-4xl mb-2">
             🤝
           </div>

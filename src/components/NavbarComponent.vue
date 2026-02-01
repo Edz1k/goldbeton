@@ -68,7 +68,9 @@ onMounted(() => {
         <div class="text-gray-700 mt-2 flex items-center">
           <div class="i-mdi-phone text-xl text-green-500 mr-2" />
           <div class="mr-10 flex flex-col">
-            <a href="tel:+77072000985" class="text-sm hover:text-red-600">+7 (707) 200-09-85</a>
+            <a href="tel:+77072000985" class="text-sm hover:text-red-600">+7 (702) 666-04-00
+
+            </a>
           </div>
         </div>
       </div>
@@ -79,7 +81,7 @@ onMounted(() => {
         <div class="text-gray-700 flex items-center">
           <div class="i-mdi-whatsapp text-xl text-green-500 mr-2" />
           <div class="flex flex-col space-y-1">
-            <a href="tel:+77072000985" class="text-sm hover:text-red-600">+7 (707) 200-09-85</a>
+            <a href="tel:+77072000985" class="text-sm hover:text-red-600">+7 (702) 666-04-00</a>
           </div>
         </div>
         <!-- Бургер -->

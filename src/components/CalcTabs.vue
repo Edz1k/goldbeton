@@ -43,8 +43,8 @@ const components: Record<TabKey, Component> = {
             class="px-4 py-2 rounded transition-all duration-300"
             :class="[
               activeTab === tab
-                ? 'bg-violet-600 text-white shadow font-medium'
-                : 'text-gray-600 bg-transparent hover:bg-red-600/10',
+                ? 'bg-yellow-600 text-white shadow font-medium'
+                : 'text-gray-600 bg-transparent hover:bg-yellow-600/10',
             ]"
             @click="activeTab = tab"
           >

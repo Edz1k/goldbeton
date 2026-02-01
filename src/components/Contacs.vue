@@ -17,8 +17,8 @@
               📞 Телефон:
             </p>
             <div class="flex flex-col space-y-1">
-              <a href="tel:+77072000985" class="text-xl text-red-600 font-medium hover:underline">
-                +7 (707) 200-09-85
+              <a href="tel:+77026660400" class="text-xl text-red-600 font-medium hover:underline">
+                +7 (702) 666-04-00
               </a>
             </div>
           </div>
@@ -27,7 +27,7 @@
               💬 WhatsApp:
             </p>
             <a
-              href="https://wa.me/77072000985"
+              href="https://wa.me/77026660400"
               target="_blank"
               class="text-xl text-green-600 font-medium hover:underline"
             >
@@ -39,7 +39,7 @@
               📍 Адрес:
             </p>
             <p class="text-gray-700">
-              Улица Казыбаева 262, Алматы, Казахстан
+              м-н Алгабас, 7 ул.126/2, Алматы, Казахстан
             </p>
           </div>
         </div>
@@ -47,7 +47,7 @@
         <!-- Карта -->
         <iframe
           class="rounded-lg h-96 w-full shadow-md"
-          src="https://yandex.kz/map-widget/v1/?from=mapframe&ll=76.916279%2C43.300471&mode=whatshere&tab=inside&whatshere%5Bpoint%5D=76.916279%2C43.300470&whatshere%5Bzoom%5D=17&z=16" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"
+          src="https://yandex.kz/map-widget/v1/?ll=76.795518%2C43.288364&z=16&whatshere%5Bpoint%5D=76.795518%2C43.288364&whatshere%5Bzoom%5D=17" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"
         />
       </div>
 
@@ -55,7 +55,7 @@
       <footer class="py-6 border-t border-gray-200 bg-white">
         <div class="text-sm text-gray-600 mx-auto px-4 flex flex-col gap-4 items-center justify-between container sm:flex-row">
           <div class="text-center sm:text-left">
-            © {{ new Date().getFullYear() }} «BM Beton». Все права защищены.
+            © {{ new Date().getFullYear() }} «Gold Beton». Все права защищены.
           </div>
           <div class="text-center space-x-4 sm:text-right">
             <a href="#about" class="hover:text-red-600">О нас</a>
