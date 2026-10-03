@@ -2,6 +2,7 @@
 import Inputmask from 'inputmask'
 import { onMounted, ref } from 'vue'
 
+const { invalid = false } = defineProps<{ invalid?: boolean }>()
 const phone = defineModel<string>()
 const input = ref<HTMLInputElement | null>(null)
 
@@ -19,19 +20,18 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full relative">
-    <!-- Иконка -->
+  <div class="group relative w-full">
     <div
-      class="i-mdi:phone peer-focus:text-accent text-xl text-gray-400 transition-colors duration-300 left-4 top-1/2 absolute -translate-y-1/2"
+      class="icon-[mdi--phone] absolute left-4 top-1/2 -translate-y-1/2 text-xl text-concrete-400 transition-colors duration-300 group-focus-within:text-gold-400"
     />
-
-    <!-- Инпут -->
     <input
       ref="input"
       v-model="phone"
       type="tel"
+      autocomplete="tel"
       placeholder="Номер телефона"
-      class="peer text-textColor border-concrete focus:ring-main hover:border-main text-lg py-3 pl-12 pr-4 border rounded-lg w-full transition-all duration-300 focus:outline-none focus:ring-2 hover:shadow-md"
+      :aria-invalid="invalid || undefined"
+      class="h-14 w-full rounded-xl border border-white/10 bg-white/[0.04] pl-12 pr-4 text-base text-white placeholder:text-concrete-400 transition-all duration-300 hover:border-white/20 focus:border-gold-400/70 focus:bg-white/[0.06] focus:outline-none focus:ring-4 focus:ring-gold-400/15 aria-invalid:border-red-400/70"
     >
   </div>
 </template>

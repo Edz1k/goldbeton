@@ -1,12 +1,220 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@plugin '@iconify/tailwind4' {
+  scale: 1.2;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Unbounded', 'Manrope', ui-sans-serif, sans-serif;
+
+  /* Фирменное золото с логотипа */
+  --color-gold-50: oklch(0.97 0.03 85);
+  --color-gold-100: oklch(0.93 0.06 85);
+  --color-gold-200: oklch(0.88 0.1 84);
+  --color-gold-300: oklch(0.83 0.12 82);
+  --color-gold-400: oklch(0.78 0.13 80);
+  --color-gold-500: oklch(0.73 0.13 78);
+  --color-gold-600: oklch(0.64 0.12 74);
+  --color-gold-700: oklch(0.53 0.1 70);
+
+  /* Бетон / графит */
+  --color-concrete-50: oklch(0.97 0.004 85);
+  --color-concrete-100: oklch(0.92 0.005 85);
+  --color-concrete-200: oklch(0.84 0.006 85);
+  --color-concrete-300: oklch(0.72 0.007 85);
+  --color-concrete-400: oklch(0.6 0.008 85);
+  --color-concrete-500: oklch(0.48 0.008 85);
+  --color-concrete-600: oklch(0.38 0.007 85);
+  --color-concrete-700: oklch(0.3 0.006 85);
+  --color-concrete-800: oklch(0.23 0.005 85);
+  --color-concrete-900: oklch(0.18 0.004 85);
+  --color-concrete-950: oklch(0.14 0.003 85);
+
+  --animate-marquee: marquee var(--marquee-duration, 40s) linear infinite;
+  --animate-pulse-ring: pulse-ring 2.4s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+  --animate-drip: drip 3.2s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+  --animate-shine: shine 6s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--marquee-gap, 3rem)));
+    }
+  }
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(1);
+      opacity: 0.55;
+    }
+    100% {
+      transform: scale(1.9);
+      opacity: 0;
+    }
+  }
+  @keyframes drip {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(400%);
+      opacity: 0;
+    }
+  }
+  @keyframes shine {
+    from {
+      background-position: 200% center;
+    }
+    to {
+      background-position: -200% center;
+    }
+  }
+}
+
+/* Сайт тёмный по дизайну — одни и те же токены для :root и .dark */
+:root,
+.dark {
+  color-scheme: dark;
+  --radius: 0.875rem;
+  --background: oklch(0.14 0.003 85);
+  --foreground: oklch(0.97 0.004 85);
+  --card: oklch(0.18 0.004 85);
+  --card-foreground: oklch(0.97 0.004 85);
+  --popover: oklch(0.18 0.004 85);
+  --popover-foreground: oklch(0.97 0.004 85);
+  --primary: oklch(0.78 0.13 80);
+  --primary-foreground: oklch(0.18 0.02 70);
+  --secondary: oklch(0.23 0.005 85);
+  --secondary-foreground: oklch(0.97 0.004 85);
+  --muted: oklch(0.23 0.005 85);
+  --muted-foreground: oklch(0.72 0.007 85);
+  --accent: oklch(0.26 0.006 85);
+  --accent-foreground: oklch(0.97 0.004 85);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.78 0.13 80);
+  --chart-1: oklch(0.78 0.13 80);
+  --chart-2: oklch(0.72 0.007 85);
+  --chart-3: oklch(0.64 0.12 74);
+  --chart-4: oklch(0.48 0.008 85);
+  --chart-5: oklch(0.88 0.1 84);
+  --sidebar: oklch(0.18 0.004 85);
+  --sidebar-foreground: oklch(0.97 0.004 85);
+  --sidebar-primary: oklch(0.78 0.13 80);
+  --sidebar-primary-foreground: oklch(0.18 0.02 70);
+  --sidebar-accent: oklch(0.23 0.005 85);
+  --sidebar-accent-foreground: oklch(0.97 0.004 85);
+  --sidebar-border: oklch(1 0 0 / 9%);
+  --sidebar-ring: oklch(0.78 0.13 80);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  ::selection {
+    @apply bg-gold-400 text-concrete-950;
+  }
+}
+
+@utility text-gold-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-gold-200) 0%,
+    var(--color-gold-400) 30%,
+    var(--color-gold-600) 50%,
+    var(--color-gold-300) 70%,
+    var(--color-gold-200) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Шум/зерно поверх тёмных секций — ощущение фактуры бетона */
+@utility bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@utility bg-grid-fade {
+  background-image: linear-gradient(to right, oklch(1 0 0 / 5%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 5%) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 html,
 body,
 #app {
-  height: 100%;
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
-}
-
-html.dark {
-  color-scheme: dark;
 }

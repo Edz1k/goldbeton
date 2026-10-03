@@ -19,5 +19,11 @@ declare module 'vue-router/auto-routes' {
    */
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
+    '/avtobetononasos': RouteRecordInfo<'/avtobetononasos', '/avtobetononasos', Record<never, never>, Record<never, never>>,
+    '/beton/[grade]': RouteRecordInfo<'/beton/[grade]', '/beton/:grade', { grade: ParamValue<true> }, { grade: ParamValue<false> }>,
+    '/keramzit/': RouteRecordInfo<'/keramzit/', '/keramzit', Record<never, never>, Record<never, never>>,
+    '/keramzit/[slug]': RouteRecordInfo<'/keramzit/[slug]', '/keramzit/:slug', { slug: ParamValue<true> }, { slug: ParamValue<false> }>,
+    '/keramzitobeton': RouteRecordInfo<'/keramzitobeton', '/keramzitobeton', Record<never, never>, Record<never, never>>,
+    '/pesok-scheben': RouteRecordInfo<'/pesok-scheben', '/pesok-scheben', Record<never, never>, Record<never, never>>,
   }
 }

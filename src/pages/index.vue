@@ -1,54 +1,63 @@
 <script setup lang="ts">
+import { usePageSeo } from '~/composables/usePageSeo'
+
 defineOptions({
   name: 'IndexPage',
 })
+
+usePageSeo({
+  title: 'Бетон с доставкой по Алматы — М100–М450 | Gold Beton',
+  description: 'Бетон М100–М450 с доставкой по Алматы в день заказа. Миксеры и автобетононасосы 32–54 м, заказы 24/7, нал и безнал. Звоните: +7 707 399 05 49',
+  path: '/',
+})
+
+const faq = [
+  { question: 'Как заказать бетон с доставкой?', answer: 'Позвоните или напишите в WhatsApp по номеру +7 (707) 399-05-49 либо оставьте заявку на сайте. Заказы принимаем круглосуточно: уточним марку, объём и адрес, рассчитаем стоимость и согласуем время подачи миксера.' },
+  { question: 'Можно ли получить бетон в день заказа?', answer: 'Да, у нас собственный автопарк, поэтому доставляем бетон по Алматы в день заказа. Точное время подачи согласуем при оформлении — оно зависит от объёма и адреса объекта.' },
+  { question: 'Сколько стоит куб бетона?', answer: 'Цена зависит от марки, объёма и адреса доставки. Назовите эти данные по телефону или в заявке — рассчитаем стоимость с доставкой. Объём можно заранее посчитать в калькуляторе на этой странице.' },
+  { question: 'Работаете с юридическими лицами?', answer: 'Да, работаем и с юридическими, и с физическими лицами. Принимаем наличный и безналичный расчёт.' },
+  { question: 'Есть ли сертификаты на бетон?', answer: 'Да, продукция сертифицирована по ГОСТ и ТР РК. Сертификаты на бетон, добавки и щебень можно посмотреть в разделе «О компании».' },
+  { question: 'Можно ли подать бетон насосом?', answer: 'Да, работаем автобетононасосами со стрелой 32, 37, 42 и 54 метра. Стоимость — от 40 000 ₸ за 3 часа работы. Подберём технику под площадку и этажность.' },
+]
 </script>
 
 <template>
-  <!-- Hero -->
-  <section
-    id="hero"
-    class="bg-[url('/background.png')] flex min-h-screen items-center relative bg-cover bg-center scroll-mt-16"
-  >
-    <div class="bg-black/60 inset-0 absolute z-0" aria-hidden="true" />
-    <div class="mx-auto px-4 relative z-10 container">
-      <div class="text-white py-12 flex flex-col min-h-[70vh] items-start justify-center md:items-start">
-        <div class="text-center w-full space-y-6">
-          <h1 class="text-2xl leading-tight font-bold md:text-6xl sm:text-5xl">
-            Купить бетон с доставкой в Алматы по самым выгодным ценам
-          </h1>
-          <p class="text-base sm:text-lg">
-            «BM Beton» — это надёжный производитель и поставщик бетона и строительных растворов по всей территории Казахстана. Мы предлагаем продукцию высокого качества, соответствующую всем строительным стандартам и требованиям.
-          </p><div class="mt-6">
-            <RequestModal />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <HeroSection />
+  <TickerStrip />
+  <StatsSection />
 
-  <!-- Калькулятор -->
-  <section id="calc" class="scroll-mt-16">
-    <CalcTabs />
-  </section>
-
-  <!-- Ассортимент -->
-  <section id="assortiment" class="scroll-mt-16">
+  <div id="assortiment">
     <ProductGrid />
-  </section>
+  </div>
 
-  <!-- Автобетононасосы -->
-  <section id="pumps" class="scroll-mt-16">
+  <CrossSell
+    to="/keramzitobeton"
+    eyebrow="Новое направление"
+    title="Керамзитобетон — лёгкий и тёплый"
+    text="Для стяжек, утепления перекрытий и стен. Рассчитаем объём и привезём на объект."
+  />
+
+  <div id="calc">
+    <CalcTabs />
+  </div>
+
+  <div id="pumps">
     <Pumps />
-  </section>
+  </div>
 
-  <!-- О компании -->
-  <section id="about" class="scroll-mt-16">
+  <ProcessSection />
+
+  <div id="about">
     <AboutUs />
-  </section>
+  </div>
 
-  <!-- Контакты -->
-  <section id="contacts" class="scroll-mt-16">
+  <FaqSection :faq="faq" title="Вопросы о заказе бетона" />
+
+  <ProductLinks />
+
+  <CtaSection />
+
+  <div id="contacts">
     <Contacs />
-  </section>
+  </div>
 </template>

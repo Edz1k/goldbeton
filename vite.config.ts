@@ -1,8 +1,8 @@
 /// <reference types="vitest" />
 
 import path from 'node:path'
+import tailwindcss from '@tailwindcss/vite'
 import Vue from '@vitejs/plugin-vue'
-import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
@@ -10,11 +10,13 @@ import { VueRouterAutoImports } from 'unplugin-vue-router'
 import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
 import vueDevTools from 'vite-plugin-vue-devtools'
+import generateSitemap from 'vite-ssg-sitemap'
 
 export default defineConfig({
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
+      '@': path.resolve(__dirname, 'src'),
     },
   },
   plugins: [
@@ -58,10 +60,24 @@ export default defineConfig({
       dts: true,
     }),
 
-    // https://github.com/antfu/unocss
-    // see uno.config.ts for config
-    UnoCSS(),
+    // https://tailwindcss.com/docs/installation/using-vite
+    tailwindcss(),
   ],
+
+  ssgOptions: {
+    // /keramzit.html вместо /keramzit/index.html — совпадает с canonical без слеша
+    dirStyle: 'flat',
+    formatting: 'minify',
+    onFinished() {
+      generateSitemap({
+        hostname: 'https://gold-beton.kz',
+        readable: true,
+        changefreq: 'weekly',
+        // robots.txt лежит в public и уже ссылается на sitemap
+        generateRobotsTxt: false,
+      })
+    },
+  },
 
   // https://github.com/vitest-dev/vitest
   test: {
