@@ -11,6 +11,7 @@ import {
 } from 'reka-ui'
 import { useRequestModal } from '~/composables/useRequestModal'
 import { useTelegram } from '~/composables/useTelegramApi'
+import { trackConversion } from '~/lib/analytics'
 
 const { isOpen, subject } = useRequestModal()
 const { sendMessage } = useTelegram()
@@ -51,6 +52,7 @@ async function handleSend() {
   const ok = await sendMessage(lines.join('\n'))
   status.value = ok ? 'sent' : 'error'
   if (ok) {
+    trackConversion('lead', { subject: subject.value ?? 'Без темы', page: window.location.pathname })
     name.value = ''
     phone.value = ''
   }

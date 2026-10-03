@@ -4,6 +4,7 @@ import { ViteSSG } from 'vite-ssg'
 import { routes } from 'vue-router/auto-routes'
 import { concreteGrades } from '~/data/seo/concrete-grades'
 import { keramzitFractions } from '~/data/seo/keramzit-fractions'
+import { installClickTracking, trackPageView } from '~/lib/analytics'
 import App from './App.vue'
 
 import './styles/main.css'
@@ -45,6 +46,21 @@ export const createApp = ViteSSG(
 
     ctx.app.use(head)
     ctx.head = head
+
+    if (ctx.isClient) {
+      installClickTracking()
+      // Первый просмотр отправляет сам gtag('config'), дальше — переходы внутри SPA
+      let initial = true
+      ctx.router.afterEach((to, from) => {
+        if (initial) {
+          initial = false
+          return
+        }
+        if (to.path !== from.path)
+          // Ждём, пока unhead обновит title новой страницы
+          setTimeout(() => trackPageView(to.fullPath), 300)
+      })
+    }
   },
 )
 
