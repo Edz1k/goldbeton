@@ -19,6 +19,13 @@ useJsonLd('organization', {
   },
   'geo': { '@type': 'GeoCoordinates', 'latitude': 43.288364, 'longitude': 76.795518 },
   'areaServed': { '@type': 'City', 'name': 'Алматы' },
+  // Работаем круглосуточно, без выходных
+  'openingHoursSpecification': {
+    '@type': 'OpeningHoursSpecification',
+    'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    'opens': '00:00',
+    'closes': '23:59',
+  },
   'contactPoint': [
     { '@type': 'ContactPoint', 'telephone': '+7 707 399 05 49', 'contactType': 'sales', 'areaServed': 'KZ' },
     { '@type': 'ContactPoint', 'telephone': '+7 777 491 78 97', 'contactType': 'customer service', 'areaServed': 'KZ' },
