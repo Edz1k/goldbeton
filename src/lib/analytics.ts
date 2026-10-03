@@ -7,9 +7,9 @@ export const ADS_ID = 'AW-17940042625'
 // → в фрагменте события send_to: 'AW-17940042625/<ЯРЛЫК>'. Пустой ярлык — конверсия
 // в Ads не отправляется, но событие всё равно уходит в gtag.
 export const CONVERSION_LABELS = {
-  lead: '',
-  call: '',
-  whatsapp: '',
+  lead: '_TdzCNGqkI8dEIGnvepC', // «Заявка с сайта»
+  call: 'LeW3CNSqkI8dEIGnvepC', // «Звонок с сайта»
+  whatsapp: 'hX_JCNeqkI8dEIGnvepC', // «WhatsApp с сайта»
 }
 
 type ConversionKind = keyof typeof CONVERSION_LABELS
